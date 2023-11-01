@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(38, 150, 255);
+      }
+      form {
+        width: 400px;
+        margin: 0 auto;
+        height: 525px;
+        border: 1px solid #000;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 20px;
+        background-color: #ffffff;
+      }
+      .input-container {
+        display: flex;
+        justify-content: space-between;
+      }
+      .input-container input {
+        width: 45%;
+      }
+      .input-container div {
+        padding: 5px;
+      }
+      .radio-container {
+        display: flex;
+      }
+      label {
+        display: block;
+      }
+      button {
+        background-color: rgb(38, 150, 255);
+        color: #ffffff;
+        text-align: center;
+        border: 2px solid rgb(38, 150, 255);
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        padding: 5px 25px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center; color: #ffffff">Customer Survey Form</h1>
+    <form id="surveyForm">
+      <div style="padding-bottom: 15px">
+        <div class="input-container">
+          <div>
+            <label for="name">Name</label><br />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              style="width: 180px; height: 20px"
+            /><br />
+          </div>
+          <div>
+            <label for="email">Email</label><br />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              style="width: 180px; height: 20px"
+            /><br />
+          </div>
+        </div>
+      </div>
+      <div style="padding-bottom: 15px">
+        <label for="firstTime"
+          >Is this your first time using our products and services?</label
+        ><br />
+        <div class="radio-container">
+          <div>
+            <input
+              type="radio"
+              id="firstTimeYes"
+              name="firstTime"
+              value="yes"
+              required
+            />
+            Yes
+          </div>
+          <div>
+            <input type="radio" id="firstTimeNo" name="firstTime" value="no" />
+            No
+          </div>
+        </div>
+      </div>
+      <div style="padding-bottom: 15px">
+        <label for="recommend"
+          >Would you suggest our products and services to your friends and
+          colleagues?</label
+        ><br />
+        <div class="radio-container">
+          <div>
+            <input
+              type="radio"
+              id="recommendYes"
+              name="recommend"
+              value="yes"
+              required
+            />
+            Yes
+          </div>
+          <div>
+            <input type="radio" id="recommendNo" name="recommend" value="no" />
+            No
+          </div>
+        </div>
+      </div>
+      <div style="padding-bottom: 15px">
+        <label for="satisfaction"
+          >How satisfied are you with our company overall?</label
+        ><br />
+        <div class="radio-container">
+          <div>
+            <input
+              type="radio"
+              id="satisfactionSatisfied"
+              name="satisfaction"
+              value="satisfied"
+              required
+            />
+            Satisfied
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="satisfactionUndecided"
+              name="satisfaction"
+              value="undecided"
+            />
+            Undecided
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="satisfactionUnsatisfied"
+              name="satisfaction"
+              value="unsatisfied"
+            />
+            Unsatisfied
+          </div>
+        </div>
+      </div>
+      <div style="padding-bottom: 15px">
+        <label for="suggestions"
+          >Do you have suggestions to improve our service?</label
+        ><br />
+        <textarea
+          id="suggestions"
+          name="suggestions"
+          style="width: 85%; height: 100px"
+        ></textarea
+        ><br />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <h5 style="text-align: center; color: white">
+      @ 2023 Customer Survey Form. All Rights Reserved | Design by
+      <span style="color: blue">Arshu Gupta</span>
+    </h5>
+    <script>
+      document
+        .getElementById("surveyForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var name = document.getElementById("name").value;
+          var email = document.getElementById("email").value;
+          var firstTime = document.querySelector(
+            "input[name=firstTime]:checked"
+          ).value;
+          var recommend = document.querySelector(
+            "input[name=recommend]:checked"
+          ).value;
+          var satisfaction = document.querySelector(
+            "input[name=satisfaction]:checked"
+          ).value;
+          var suggestions = document.getElementById("suggestions").value;
+
+          alert(
+            "Name: " +
+              name +
+              "\n" +
+              "Email: " +
+              email +
+              "\n" +
+              "First time user: " +
+              firstTime +
+              "\n" +
+              "Recommend: " +
+              recommend +
+              "\n" +
+              "Satisfaction: " +
+              satisfaction +
+              "\n" +
+              "Suggestions: " +
+              suggestions
+          );
+
+          document.getElementById("surveyForm").reset();
+        });
+    </script>
+  </body>
+</html>
